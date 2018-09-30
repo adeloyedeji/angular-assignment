@@ -1,0 +1,30 @@
+<div style="text-align:center">
+    <h1>
+      Search results for "{{query}}"
+    </h1>
+    <img width="100" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    <p>
+      <a routerLink="/">Home</a>
+    </p>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search here e.g. Dublin" aria-label="Search here e.g. Dublin" aria-describedby="button-addon2" [(ngModel)]="query" (ngModelChange)="search($event)" >
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2" routerLink="/search/{{query}}">Search</button>
+          </div>
+        </div>
+    </div>
+  </div>
+  <app-weather location="Istanbul" *ngIf="status == 0" ></app-weather>
+  <app-weather location="Berlin" *ngIf="status == 1"></app-weather>
+  <app-weather location="London" *ngIf="status == 2"></app-weather>
+  <app-weather location="Helsinki" *ngIf="status == 3"></app-weather>
+  <app-weather location="Dublin" *ngIf="status == 4"></app-weather>
+  <app-weather location="Vancouver" *ngIf="status == 5"></app-weather>
+  <h1 class="text-center" *ngIf="status == -1" >
+    “No results were found. Try changing the keyword!”
+  </h1>
+</div>

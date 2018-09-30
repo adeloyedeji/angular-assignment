@@ -1,0 +1,94 @@
+<div style="text-align:center">
+    <h1>
+      {{reports.title}}
+    </h1>
+    <img width="150" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+    <p>
+      <a routerLink="/">Home</a>
+    </p>
+</div>
+<h2 class="text-center">Todays weather forecast: </h2>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12" *ngFor="let report of reports.consolidated_weather">
+      <div class="card">
+        <div class="card-header">
+          {{report.applicable_date}} - {{getDay(report.applicable_date)}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Temperature: {{report.the_temp}}</h5>
+          <img class="card-img-top pull-right" [src]="'https://www.metaweather.com/static/img/weather/png/'+report.weather_state_abbr+'.png'" alt="Card image cap" style="width:150px;height:150px;">
+          <div class="table-responsive">
+            <table class="table table-hover table-stripped table-bordered">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Maximum Temperature</td>
+                  <td>{{report.min_temp}}</td>
+                </tr>
+                <tr>
+                  <td>Minimum Temperature</td>
+                  <td>{{report.max_temp}}</td>
+                </tr>
+                <tr>
+                  <td>Weather State</td>
+                  <td>{{report.weather_state_name}}</td>
+                </tr>
+                <tr>
+                  <td>Wind Direction Compass</td>
+                  <td>{{report.wind_direction_compass}}</td>
+                </tr>
+                <tr>
+                  <td>Wind Speed</td>
+                  <td>{{report.wind_speed}}</td>
+                </tr>
+                <tr>
+                  <td>Wind Direction</td>
+                  <td>{{report.wind_direction}}</td>
+                </tr>
+                <tr>
+                  <td>Air Pressure</td>
+                  <td>{{report.air_pressure}}</td>
+                </tr>
+                <tr>
+                  <td>Humidity</td>
+                  <td>{{report.humidity}}</td>
+                </tr>
+                <tr>
+                  <td>Visibility</td>
+                  <td>{{report.visibility}}</td>
+                </tr>
+                <tr>
+                  <td>Predictability</td>
+                  <td>{{report.predictability}}</td>
+                </tr>
+                <tr>
+                  <td>Sunrise</td>
+                  <td>{{reports.sun_rise}}</td>
+                </tr>
+                <tr>
+                  <td>Sunset</td>
+                  <td>{{reports.sun_set}}</td>
+                </tr>
+                <tr>
+                  <td>Latitude / Longitude</td>
+                  <td>{{reports.latt_long}}</td>
+                </tr>
+                <tr>
+                  <td>Timezone</td>
+                  <td>{{reports.timezone}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
